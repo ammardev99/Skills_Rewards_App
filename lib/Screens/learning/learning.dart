@@ -91,7 +91,7 @@ class _LearningState extends State<Learning> {
 
               sizeBox(0, 10),
 
-              courseCard("Web Development", "/assets/course_images/web.png",
+              courseCard("Web Development", "assets/course_images/web.png",
                   context, const CourseModules())
             ],
           )),

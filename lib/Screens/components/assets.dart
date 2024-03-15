@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 Color primaryColor = const Color(0xFF863FC1);
@@ -11,7 +10,9 @@ primaryColorBtn() {
   );
 }
 
-Widget heading1(String txt,   Color color,
+Widget heading1(
+  String txt,
+  Color color,
 ) {
   return Text(
     txt,
@@ -39,23 +40,27 @@ Widget subHeading(
   );
 }
 
-
 InputDecoration inputStyle(String label, String hint) {
   return InputDecoration(
-    labelText: label,
-    labelStyle: TextStyle(fontWeight: FontWeight.bold, color: secondaryColor),
-    hintText: hint,
-    border: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(8),
-    ),
-    focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: BorderSide(color: primaryColor)),
-    enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(8),
-      borderSide: BorderSide(color: secondaryColor),
-    ),
-    focusColor: secondaryColor,
-    hoverColor: secondaryColor,
-  );
+      labelText: label,
+      hintText: hint,
+      alignLabelWithHint: true,
+      labelStyle: TextStyle(fontWeight: FontWeight.w500, color: secondaryColor),
+      contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(5),
+        borderSide: BorderSide(color: secondaryColor),
+      ),
+      focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: BorderSide(color: primaryColor)),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(5),
+        borderSide: BorderSide(color: secondaryColor),
+      ),
+      focusColor: secondaryColor,
+      hoverColor: secondaryColor,
+      errorBorder: const OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.red),
+      ));
 }

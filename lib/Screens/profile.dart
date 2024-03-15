@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:skills_rewards/Screens/admin/add_course.dart';
-import 'package:skills_rewards/Screens/components/assets.dart';
 import 'package:skills_rewards/Screens/components/widgets.dart';
 import 'package:skills_rewards/Screens/edit_profile.dart';
 import 'package:skills_rewards/Screens/socail_media.dart';
@@ -48,33 +47,35 @@ class Profile extends StatelessWidget {
                   ),
                   onTap: () {
                     Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const EditProfile()));
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const EditProfile()));
 
                     // EditProfile();
                   },
                 ),
               ),
             )),
-        menuOption(
-          const Icon(Icons.favorite_border_rounded),
-          'My Favorite',
-          context,
-        ),
-        menuOption(
-          const Icon(Icons.assignment_outlined),
-          'CV | Resume',
-          context,
-        ),
+        // menuOption(
+        //   const Icon(Icons.favorite_border_rounded),
+        //   'My Favorite',
+        //   context,
+        // ),
+        // menuOption(
+        //   const Icon(Icons.assignment_outlined),
+        //   'CV | Resume',
+        //   context,
+        // ),
         menuOption(
           const Icon(Icons.card_giftcard_rounded),
           'Donate',
           context,
         ),
-        menuOption(
-          const Icon(Icons.history),
-          'History',
-          context,
-        ),
+        // menuOption(
+        //   const Icon(Icons.history),
+        //   'History',
+        //   context,
+        // ),
         menuOption(
           const Icon(Icons.support_agent_rounded),
           'Help',
@@ -86,14 +87,13 @@ class Profile extends StatelessWidget {
           context,
         ),
         menuOption(
-            Icon(
+            const Icon(
               Icons.account_tree_outlined,
-              color: secondaryColor,
             ),
             'Community',
             context,
             const SocailMedia()),
-        menuOption(Icon(Icons.bookmark_add_outlined, color: secondaryColor),
+        menuOption(const Icon(Icons.bookmark_add_outlined),
             'Add Course', context, const AddCourse()),
         menuOption(
           const Icon(Icons.logout),

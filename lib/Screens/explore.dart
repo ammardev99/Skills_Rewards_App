@@ -6,18 +6,12 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Explore extends StatefulWidget {
   const Explore({super.key});
+
   @override
   State<Explore> createState() => _ExploreState();
 }
 
 class _ExploreState extends State<Explore> {
-  int currentIndex = 0;
-  final sliderImages = [
-    Image.asset('assets/images/banner.png'),
-    Image.asset('assets/images/card.jpg'),
-    Image.asset('assets/images/banner.png'),
-    Image.asset('assets/images/card.jpg'),
-  ];
   final List<String> coursesName = [
     'Web Development',
     'App Development',
@@ -27,7 +21,20 @@ class _ExploreState extends State<Explore> {
     'C++ Programming'
   ];
 
+  int currentIndex = 0;
+  final sliderImages = [
+    Image.asset('assets/images/banner1.png'),
+    Image.asset('assets/images/banner2.png'),
+    Image.asset('assets/images/banner3.png'),
+    Image.asset('assets/images/banner4.png'),
+    Image.asset('assets/images/banner5.png'),
+    Image.asset('assets/images/banner6.png'),
+    Image.asset('assets/images/banner7.png'),
+    Image.asset('assets/images/banner8.png'),
+  ];
+
   int sliderIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,15 +49,21 @@ class _ExploreState extends State<Explore> {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 gradient: myGradient(),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.black45,
+                    blurRadius: 5,
+                    spreadRadius: 3,
+                  ),
+                ],
               ),
               child: Column(
                 children: [
                   CarouselSlider(
                     items: sliderImages,
                     options: CarouselOptions(
-                      height: 180,
-                      // autoPlayCurve: Curves.fastOutSlowIn,
-                      autoPlayInterval: const Duration(seconds: 2),
+                      height: 160,
+                      autoPlayInterval: const Duration(seconds: 4),
                       autoPlayCurve: Curves.easeInOutCirc,
                       enlargeCenterPage: true,
                       autoPlay: true,
@@ -62,15 +75,13 @@ class _ExploreState extends State<Explore> {
                       },
                     ),
                   ),
-                  sizeBox(0, 10),
+                  sizeBox(0, 5),
                   AnimatedSmoothIndicator(
                     activeIndex: sliderIndex,
                     count: sliderImages.length,
                     effect: const WormEffect(
                       dotHeight: 10,
                       dotWidth: 10,
-                      // spacing: 10,
-                      // paintStyle: PaintingStyle.fill,
                       dotColor: Colors.white24,
                       activeDotColor: Colors.white54,
                     ),
@@ -99,14 +110,9 @@ class _ExploreState extends State<Explore> {
             courseCard(coursesName[4], "assets/course_images/wordpress.png",
                 context, const CourseIntro()),
             sizeBox(0, 8),
-            courseCard("Flutter", "assets/course_images/c++.png", context,
-                const CourseIntro()),
-            sizeBox(0, 8),
             courseCard(coursesName[5], "assets/course_images/c++.png", context,
                 const CourseIntro()),
-            sizeBox(0, 8),
-            courseCard(coursesName[5], "assets/course_images/c++.png", context,
-                const CourseIntro()),
+            sizeBox(0, 70),
           ],
         ),
       ),
@@ -140,5 +146,4 @@ class _ExploreState extends State<Explore> {
               //       ],
               //     ),
               // child: const Text("data")
-              
               // )
