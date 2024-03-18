@@ -21,21 +21,19 @@ class CourseModules extends StatelessWidget {
           courseTopCard("Web Development", "By Ammar","assets/course_images/web.png"),
           moduleCard(
             "assets/course_logo/html.png",
-              // const Icon(
-              //   Icons.html_rounded,
-              //   color: Colors.black12,
-              //   size: 40,
-              // ),
               "HTML",
               "15 Lesson",context,const Course()),
+              sizeBox(0, 10),
           moduleCard(
               "assets/course_logo/css.png",
               "CSS",
               "10 Lesson",context,const Course()),
+              sizeBox(0, 10),
           moduleCard(
               "assets/course_logo/web.jpg",
               "module",
               "50 Lesson",  context,const Course()),
+              sizeBox(0, 10),
         ]),
       ),
     );

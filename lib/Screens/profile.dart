@@ -77,7 +77,7 @@ class Profile extends StatelessWidget {
           //   context,
           // ),
           menuOption(
-            const Icon(Icons.support_agent_rounded),
+            const Icon(Icons.support_agent_rounded,),
             'Help',
             context,
           ),

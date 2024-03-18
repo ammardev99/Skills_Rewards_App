@@ -11,7 +11,6 @@ class Notes extends StatelessWidget {
         appBar: AppBar(
           shadowColor: const Color.fromARGB(255, 0, 0, 0),
           elevation: 8,
-      
           // centerTitle: true,
           title: const Text(
             "Notes",

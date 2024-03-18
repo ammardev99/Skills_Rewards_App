@@ -73,7 +73,7 @@ class _LearningState extends State<Learning> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "My Name",
+                                  "Full Name",
                                   style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
                                 Text("myemail@gmail.com"),
@@ -92,7 +92,7 @@ class _LearningState extends State<Learning> {
       
                 sizeBox(0, 10),
       
-                courseCard("Web Development", "assets/course_images/web.png",
+                coursePkg("Web Development", "assets/course_images/web.png",
                     context, const CourseModules())
               ],
             )),

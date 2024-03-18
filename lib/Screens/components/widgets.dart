@@ -29,68 +29,93 @@ myGradient() {
   );
 }
 
-Widget courseCard(
+Widget coursePkg(
   String title,
   String img,
-  // ignore: non_constant_identifier_names
   BuildContext context,
   openPage,
 ) {
-  return InkWell(
-    onTap: () {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => openPage));
-    },
-    child: Container(
-      padding: const EdgeInsets.all(8),
-      height: 85,
-      width: 340,
-      decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 255, 246, 253),
-        borderRadius: BorderRadius.circular(5),
-        border: Border.all(width: 1, color: secondaryColor.withOpacity(0.1)),
-        boxShadow: [myBoxShadow()],
-      ),
-      child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 10),
+    child: InkWell(
+      hoverColor: Colors.white,
+      splashColor: secondaryColor03,
+      borderRadius: BorderRadius.circular(8),
+      highlightColor: Colors.white,
+
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => openPage));
+      },
+      // main container
+      child: Container(
+        width: MediaQuery.of(context).size.width >= 360
+            ? 370
+            : MediaQuery.of(context).size.width,
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5),
+          border: Border.all(width: 1, color: secondaryColor03),
+          boxShadow: [myBoxShadow()],
+        ),
+        child: Row(
           children: [
+            // Thumbnail
             Container(
-              // height: 70,
-              width: 70,
+              width: 80,
+              height: 80,
               decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 241, 241, 241),
-                  borderRadius: BorderRadius.circular(5),
-                  image: DecorationImage(
-                    image: AssetImage(
-                      img,
-                    ),
-                  )),
-              // child:  Image(image:  AssetImage(img,),)
+                border: Border.all(width: 1, color: secondaryColor03),
+                borderRadius: BorderRadius.circular(8),
+                image: DecorationImage(
+                  image: AssetImage(img),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
-            SizedBox(
-              width: 240,
-              // color: const Color.fromARGB(255, 53, 60, 53),
+            // Thumbnail end
+            const SizedBox(width: 15),
+
+            Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    title,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  const Text("3 Modules"),
-                  const Text("250 Students"),
+                  heading(title, secondaryColor),
+                  const Text("HTML | CSS | JavaScript | React "),
+                  const SizedBox(height: 8),
+                  SizedBox(child: pkgInfoIcons(5, 3.5, 25, 10)),
                 ],
               ),
             ),
-            // SizedBox(
-            //   width: 40,
-            //   // color: const Color.fromARGB(255, 169, 169, 169),
-            //   child: IconButton(
-            //       onPressed: () {}, icon: const Icon(Icons.favorite_border)),
-            // ),
-          ]),
+          ],
+        ),
+      ),
     ),
+  );
+}
+
+Widget pkgInfoIcons(int m, double r, double s, int f) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceAround,
+    children: [
+      labelIcon(m.toString(), Icons.menu_book),
+      labelIcon(r.toString(), Icons.star),
+      labelIcon(s.toString(), Icons.groups_2_rounded),
+      labelIcon(f.toString(), Icons.favorite),
+    ],
+  );
+}
+
+Widget labelIcon(String txt, IconData icon) {
+  return Row(
+    children: [
+      Text(
+        txt,
+        style: infoHeading(),
+      ),
+      sizeBox(5, 0),
+      infoIcon(icon),
+    ],
   );
 }
 
@@ -121,7 +146,6 @@ Widget courseTopCard(String title, String subtitle, String img) {
             width: 80,
             height: 80,
             decoration: BoxDecoration(
-                // color: Colors.black12,
                 borderRadius: BorderRadius.circular(8),
                 image: DecorationImage(
                   image: AssetImage(img),
@@ -136,26 +160,26 @@ Widget moduleCard(
     String img, String title, String subtitle, BuildContext context,
     [course]) {
   return InkWell(
+    splashColor: secondaryColor.withOpacity(0.3),
+    borderRadius: BorderRadius.circular(8),
+    highlightColor: Colors.white,
     onTap: () {
       Navigator.push(context, MaterialPageRoute(builder: (context) => course));
     },
     child: Container(
-      margin: const EdgeInsets.symmetric(vertical: 5),
       width: 340,
       height: 70,
       decoration: BoxDecoration(
-        border: Border.all(width: 1, color: Colors.black12),
+        border: Border.all(width: 1, color: secondaryColor.withOpacity(0.3)),
         borderRadius: BorderRadius.circular(8),
       ),
       child: ListTile(
-        // leading: icon,
-        // leading: Icon(icon, color: Colors.black12, size: 40,),
-        // leading: const Icon(Icons.book_rounded, color: Colors.black12, size: 40,),
         leading: Container(
           height: 40,
           width: 40,
-          decoration:
-              BoxDecoration(image: DecorationImage(image: AssetImage(img))),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              image: DecorationImage(image: AssetImage(img))),
         ),
         title: Text(
           title,
@@ -174,33 +198,33 @@ Widget moduleCard(
 Widget lessonCard(String title, String subtitle, BuildContext context,
     [course]) {
   return InkWell(
+    splashColor: secondaryColor.withOpacity(0.3),
+    borderRadius: BorderRadius.circular(8),
+    highlightColor: Colors.white,
     onTap: () {
       Navigator.push(context, MaterialPageRoute(builder: (context) => course));
     },
     child: Container(
-      margin: const EdgeInsets.symmetric(vertical: 5),
       width: 340,
       height: 70,
       decoration: BoxDecoration(
-        border: Border.all(width: 1, color: Colors.black12),
+        border: Border.all(width: 1, color: secondaryColor.withOpacity(0.3)),
         borderRadius: BorderRadius.circular(8),
       ),
       child: ListTile(
-        leading: const Icon(
+        leading: Icon(
           Icons.play_circle_fill_rounded,
-          color: Color(0xffE531E9),
+          color: secondaryColor,
           size: 40,
         ),
-        // leading: Icon(icon, color: Colors.black12, size: 40,),
-        // leading: const Icon(Icons.book_rounded, color: Colors.black12, size: 40,),
         title: Text(
           title,
           style: const TextStyle(fontWeight: FontWeight.w600),
         ),
         subtitle: Text(subtitle),
-        trailing: const Icon(
+        trailing: Icon(
           Icons.check_circle_outline_rounded,
-          color: Color(0xffE531E9),
+          color: secondaryColor,
         ),
       ),
     ),
@@ -209,34 +233,34 @@ Widget lessonCard(String title, String subtitle, BuildContext context,
 
 Widget quizCard(String title, String subtitle) {
   return InkWell(
+    splashColor: secondaryColor03,
+    borderRadius: BorderRadius.circular(8),
+    highlightColor: Colors.white,
     onTap: () {
       // Navigator.push(
       //     context, MaterialPageRoute(builder: (context) => course));
     },
     child: Container(
-      margin: const EdgeInsets.symmetric(vertical: 5),
       width: 340,
       height: 70,
       decoration: BoxDecoration(
-        border: Border.all(width: 1, color: Colors.black12),
+        border: Border.all(width: 1, color: secondaryColor03),
         borderRadius: BorderRadius.circular(8),
       ),
       child: ListTile(
-        leading: const Icon(
+        leading: Icon(
           Icons.analytics_rounded,
-          color: Color(0xffE531E9),
+          color: secondaryColor,
           size: 40,
         ),
-        // leading: Icon(icon, color: Colors.black12, size: 40,),
-        // leading: const Icon(Icons.book_rounded, color: Colors.black12, size: 40,),
         title: Text(
           title,
           style: const TextStyle(fontWeight: FontWeight.w600),
         ),
         subtitle: Text(subtitle),
-        trailing: const Icon(
+        trailing: Icon(
           Icons.check_circle_outline_rounded,
-          color: Color(0xffE531E9),
+          color: secondaryColor,
         ),
       ),
     ),
@@ -245,9 +269,7 @@ Widget quizCard(String title, String subtitle) {
 
 Widget textBtton(String txt) {
   return TextButton(
-    onPressed: () {
-      // Add your button functionality here
-    },
+    onPressed: () {},
     style: ButtonStyle(
       backgroundColor: primaryColorBtn(),
     ),
@@ -260,35 +282,28 @@ Widget textBtton(String txt) {
   );
 }
 
-Widget notesCard(BuildContext context,String title, String subtitle, [Icon? icon]) {
+Widget notesCard(BuildContext context, String title, String subtitle,
+    [Icon? icon]) {
   return InkWell(
-          onTap: () {
-            
-        // addCourse = null ? 
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: heading(
-            'Under Maintenance',
-            // style: TextStyle(color: Colors.white),
-             Colors.black87
-          ),
-          backgroundColor: Colors.grey[200],
-          duration: const Duration(milliseconds: 200),
-        ));
-      },
+        splashColor: secondaryColor03,
+    highlightColor: Colors.white,
 
+    onTap: () {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: heading('Under Maintenance', Colors.black87),
+        backgroundColor: Colors.grey[200],
+        duration: const Duration(milliseconds: 200),
+      ));
+    },
     child: Container(
       decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(color: secondaryColor.withOpacity(0.3))),
+        border: Border(bottom: BorderSide(color: secondaryColor03)),
       ),
       child: ListTile(
-        title: 
-        // Text(
-          subHeading(title, Colors.black),
-          // style: const TextStyle(fontWeight: FontWeight.w700),
-        // ),
+        title: subHeading(title, Colors.black),
         subtitle: Text(subtitle),
         trailing: icon,
-        iconColor: secondaryColor,
+        iconColor: Colors.grey,
       ),
     ),
   );
@@ -296,34 +311,27 @@ Widget notesCard(BuildContext context,String title, String subtitle, [Icon? icon
 
 Widget menuOption(Icon icon, String txt, BuildContext context, [page]) {
   return Container(
-    decoration:  BoxDecoration(
-        border: Border(bottom: BorderSide( color: secondaryColor.withOpacity(0.3)))),
+    decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(color: secondaryColor))),
     child: ListTile(
-      hoverColor: secondaryColor.withOpacity(0.6),
+      hoverColor: secondaryColor03,
+      splashColor: secondaryColor03,
       leading: icon,
-      iconColor: Colors.black45,
-      title: subHeading(txt,   page ==null?  Colors.black12:Colors.black87),
-      trailing: Icon(Icons.chevron_right,   color: page ==null?Colors.black12 : secondaryColor,),
+      iconColor: page == null ? Colors.black12 : Colors.grey,
+      title: subHeading(txt, page == null ? Colors.black12 : Colors.grey),
+      trailing: Icon(
+        Icons.chevron_right,
+        color: page == null ? Colors.grey : secondaryColor03,
+      ),
       onTap: () {
-
-        // ignore: avoid_print
-        page ==null? 
-           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: heading(
-            'Under Maintenance',
-            // style: TextStyle(color: Colors.white),
-             Colors.black87
-          ),
-          
-          backgroundColor: Colors.grey[200],
-          duration: const Duration(milliseconds: 200),
-        ))
-        :
-                  Navigator.push(
-          context, MaterialPageRoute(builder: (context) => page));
-
-     
-     
+        page == null
+            ? ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: heading('Under Maintenance', Colors.grey),
+                backgroundColor: Colors.grey[200],
+                duration: const Duration(milliseconds: 200),
+              ))
+            : Navigator.push(
+                context, MaterialPageRoute(builder: (context) => page));
       },
     ),
   );

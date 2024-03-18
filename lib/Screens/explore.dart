@@ -37,115 +37,83 @@ class _ExploreState extends State<Explore> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        extendBody: true,
-        body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            children: [
-              // top Gradient
-              Container(
-                padding: const EdgeInsets.only(top: 20, bottom: 20),
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  gradient: myGradient(),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black45,
-                      blurRadius: 5,
-                      spreadRadius: 3,
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    CarouselSlider(
-                      items: sliderImages,
-                      options: CarouselOptions(
-                        height: 160,
-                        autoPlayInterval: const Duration(seconds: 4),
-                        autoPlayCurve: Curves.easeInOutCirc,
-                        enlargeCenterPage: true,
-                        autoPlay: true,
-                        pauseAutoPlayOnTouch: true,
-                        onPageChanged: (index, reason) {
-                          setState(() {
-                            sliderIndex = index;
-                          });
-                        },
-                      ),
-                    ),
-                    sizeBox(0, 5),
-                    AnimatedSmoothIndicator(
-                      activeIndex: sliderIndex,
-                      count: sliderImages.length,
-                      effect: const WormEffect(
-                        dotHeight: 10,
-                        dotWidth: 10,
-                        dotColor: Colors.white24,
-                        activeDotColor: Colors.white54,
-                      ),
-                    ),
-                  ],
-                ),
+    return Scaffold(
+      extendBody: true,
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+// top Gradient
+            Container(
+              padding: const EdgeInsets.only(top: 20, bottom: 20),
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                gradient: myGradient(),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.black45,
+                    blurRadius: 5,
+                    spreadRadius: 3,
+                  ),
+                ],
               ),
-              sizeBox(0, 5),
-      
-              // course cards
-              sizeBox(0, 8),
-              courseCard(coursesName[0], "assets/course_images/web.png", context,
-                  const CourseIntro()),
-              sizeBox(0, 8),
-              // courseCard(coursesName[1], "assets/course_images/app.png", context,
-              //     const CourseIntro()),
-              courseCard(coursesName[1], "assets/course_images/app.png", context,
-                  const CourseIntro()),
-              sizeBox(0, 8),
-              courseCard(coursesName[2], "assets/course_images/uiux.png", context,
-                  const CourseIntro()),
-              sizeBox(0, 8),
-              courseCard(coursesName[3], "assets/course_images/graphic.png",
-                  context, const CourseIntro()),
-              sizeBox(0, 8),
-              courseCard(coursesName[4], "assets/course_images/wordpress.png",
-                  context, const CourseIntro()),
-              sizeBox(0, 8),
-              courseCard(coursesName[5], "assets/course_images/c++.png", context,
-                  const CourseIntro()),
-              sizeBox(0, 70),
-            ],
-          ),
+              child: Column(
+                children: [
+                  CarouselSlider(
+                    items: sliderImages,
+                    options: CarouselOptions(
+                      height: 160,
+                      autoPlayInterval: const Duration(seconds: 4),
+                      autoPlayCurve: Curves.easeInOutCirc,
+                      enlargeCenterPage: true,
+                      autoPlay: true,
+                      pauseAutoPlayOnTouch: true,
+                      onPageChanged: (index, reason) {
+                        setState(() {
+                          sliderIndex = index;
+                        });
+                      },
+                    ),
+                  ),
+                  sizeBox(0, 5),
+                  AnimatedSmoothIndicator(
+                    activeIndex: sliderIndex,
+                    count: sliderImages.length,
+                    effect: const WormEffect(
+                      dotHeight: 10,
+                      dotWidth: 10,
+                      dotColor: Colors.white24,
+                      activeDotColor: Colors.white54,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            sizeBox(0, 5),
+
+            // course cards
+            sizeBox(0, 8),
+            coursePkg(coursesName[0], "assets/course_images/web.png", context,
+                const CourseIntro()),
+            sizeBox(0, 8),
+            coursePkg(coursesName[1], "assets/course_images/app.png", context,
+                const CourseIntro()),
+            sizeBox(0, 8),
+            coursePkg(coursesName[2], "assets/course_images/uiux.png", context,
+                const CourseIntro()),
+            sizeBox(0, 8),
+            coursePkg(coursesName[3], "assets/course_images/graphic.png",
+                context, const CourseIntro()),
+            sizeBox(0, 8),
+            coursePkg(coursesName[4], "assets/course_images/wordpress.png",
+                context, const CourseIntro()),
+            sizeBox(0, 8),
+            coursePkg(coursesName[5], "assets/course_images/c++.png", context,
+                const CourseIntro()),
+            sizeBox(0, 10),
+          ],
         ),
       ),
     );
   }
 }
-
-
-
-
-              // Container(
-              //     height: 180,
-              //     width: 340,
-              //     decoration: BoxDecoration(
-              //       color: Colors.white,
-              //       // gradient: myGradient(),
-              //       borderRadius: BorderRadius.circular(5),
-              //       image:
-
-              //       const DecorationImage(
-              //         image: AssetImage("assets/images/banner.png"),
-              //         fit: BoxFit.fill,
-              //       ),
-              //       boxShadow: const [
-              //         BoxShadow(
-              //           color: Color.fromARGB(40, 0, 0, 0),
-              //           offset: Offset(0.0, 0), // Shadow position
-              //           blurRadius: 3.0, // Shadow spread
-              //           spreadRadius: 5.0, // Shadow size
-              //         ),
-              //       ],
-              //     ),
-              // child: const Text("data")
-              // )
