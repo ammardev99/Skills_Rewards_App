@@ -1,9 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:skills_rewards/Screens/components/assets.dart';
 import 'package:skills_rewards/Screens/components/widgets.dart';
 import 'package:skills_rewards/Screens/courseintro.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+// import 'package:flutter/ge';
 class Explore extends StatefulWidget {
   const Explore({super.key});
 
@@ -34,6 +36,8 @@ class _ExploreState extends State<Explore> {
   ];
 
   int sliderIndex = 0;
+
+  bool favIcon = true;
 
   @override
   Widget build(BuildContext context) {
@@ -90,8 +94,88 @@ class _ExploreState extends State<Explore> {
               ),
             ),
             sizeBox(0, 5),
-
             // course cards
+            sizeBox(0, 8),
+
+            Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: InkWell(
+                  hoverColor: Colors.white,
+                  splashColor: secondaryColor03,
+                  borderRadius: BorderRadius.circular(8),
+                  highlightColor: Colors.white,
+
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const CourseIntro()),
+                    );
+                  },
+                  // main container
+                  child: Stack(children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width >= 360
+                          ? 370
+                          : MediaQuery.of(context).size.width,
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(width: 1, color: secondaryColor03),
+                        boxShadow: [myBoxShadow()],
+                      ),
+                      child: Row(
+                        children: [
+                          // Thumbnail
+                          Container(
+                            width: 80,
+                            height: 80,
+                            decoration: BoxDecoration(
+                              border:
+                                  Border.all(width: 1, color: secondaryColor03),
+                              borderRadius: BorderRadius.circular(8),
+                              image: const DecorationImage(
+                                image:
+                                    AssetImage("assets/course_images/web.png"),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          // Thumbnail end
+                          const SizedBox(width: 15),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                heading(coursesName[0], secondaryColor),
+                                const Text("HTML | CSS | JavaScript | React "),
+                                const SizedBox(height: 8),
+                                SizedBox(child: pkgInfoIcons(5, 3.5, 25, 10)),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Positioned(
+                        right: 0,
+                        child: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                favIcon = favIcon == true ? false : true;
+                              });
+                            },
+                            icon: favIcon == true
+                                ? const Icon(
+                                    Icons.favorite_border_rounded,
+                                    color: Colors.grey,
+                                  )
+                                : Icon(
+                                    Icons.favorite,
+                                    color: secondaryColor,
+                                  )))
+                  ]),
+                )),
             sizeBox(0, 8),
             coursePkg(coursesName[0], "assets/course_images/web.png", context,
                 const CourseIntro()),
@@ -110,7 +194,8 @@ class _ExploreState extends State<Explore> {
             sizeBox(0, 8),
             coursePkg(coursesName[5], "assets/course_images/c++.png", context,
                 const CourseIntro()),
-            sizeBox(0, 10),
+            sizeBox(0, 8),
+            sizeBox(0, 70),
           ],
         ),
       ),

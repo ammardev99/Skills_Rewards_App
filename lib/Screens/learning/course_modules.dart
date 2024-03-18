@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skills_rewards/Screens/components/widgets.dart';
-import 'package:skills_rewards/Screens/course.dart';
+import 'package:skills_rewards/Screens/learning/course.dart';
 
 class CourseModules extends StatelessWidget {
   const CourseModules({super.key});
@@ -18,21 +18,21 @@ class CourseModules extends StatelessWidget {
           ),
         ),
         body: Column(children: [
-          courseTopCard("Web Development", "By Ammar","assets/course_images/web.png"),
+          courseTopCard("HTML", "By Mr. Ammar","assets/course_logo/html.png"),
           moduleCard(
-            "assets/course_logo/html.png",
-              "HTML",
-              "15 Lesson",context,const Course()),
+            "assets/images/default_img.jpeg",
+              "Introduction and Setup",
+              "3 Lesson",context,const Course()),
               sizeBox(0, 10),
           moduleCard(
-              "assets/course_logo/css.png",
-              "CSS",
-              "10 Lesson",context,const Course()),
+            "assets/images/default_img.jpeg",
+              "Heading",
+              "2 Lesson",context,const Course()),
               sizeBox(0, 10),
           moduleCard(
-              "assets/course_logo/web.jpg",
-              "module",
-              "50 Lesson",  context,const Course()),
+            "assets/images/default_img.jpeg",
+              "Formating",
+              "5 Lesson",  context,const Course()),
               sizeBox(0, 10),
         ]),
       ),

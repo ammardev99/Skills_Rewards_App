@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skills_rewards/Screens/components/widgets.dart';
-import 'package:skills_rewards/Screens/lesson.dart';
+import 'package:skills_rewards/Screens/learning/lesson.dart';
 class Course extends StatelessWidget {
   const Course({super.key});
   @override
@@ -18,12 +18,12 @@ class Course extends StatelessWidget {
           ),
         ),
         body: Column(children: [
-          courseTopCard("HTML", "By Ammar", "assets/course_logo/html.png"),
-          lessonCard("Introduction", "15 min", context, const PlayLesson()),
+          courseTopCard("HTML Introduction", "", "assets/course_logo/html.png"),
+          lessonCard("What is HTML", "15 min", context, const PlayLesson()),
           sizeBox(0, 8),
-          lessonCard("Installation ", "10 min", context, const PlayLesson()),
+          lessonCard("History of HTML", "10 min", context, const PlayLesson()),
           sizeBox(0, 8),
-          lessonCard("Basics of Course", "50 min", context, const PlayLesson()),
+          lessonCard("Installation", "50 min", context, const PlayLesson()),
           sizeBox(0, 8),
         ]),
       ),
