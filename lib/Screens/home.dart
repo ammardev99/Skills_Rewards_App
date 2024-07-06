@@ -29,6 +29,7 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         extendBody: true,
+
         body: screens[currentIndex],
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
